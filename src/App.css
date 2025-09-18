@@ -1,0 +1,11 @@
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 72px);
+}
