@@ -6,7 +6,7 @@ const UsersTable = () => {
     {
       id: 1,
       name: 'Keith Jimenez',
-      avatar: 'KJ',
+      avatar: '/images/users/keith.png',
       profile: 'Engineering',
       status: 'Connected',
       role: 'Power User',
@@ -16,7 +16,7 @@ const UsersTable = () => {
     {
       id: 2,
       name: 'Louis Gray',
-      avatar: 'LG',
+      avatar: '/images/users/louis.png',
       profile: 'Marketing',
       status: 'Offline',
       role: 'User',
@@ -26,7 +26,7 @@ const UsersTable = () => {
     {
       id: 3,
       name: 'Donna Young',
-      avatar: 'DY',
+      avatar: '/images/users/donna.png',
       profile: 'Marketing',
       status: 'Connected',
       role: 'Admin',
@@ -36,7 +36,7 @@ const UsersTable = () => {
     {
       id: 4,
       name: 'Keith Jimenez',
-      avatar: 'KJ',
+      avatar: '/images/users/keith.png',
       profile: 'Engineering',
       status: 'Offline',
       role: 'User',
@@ -46,7 +46,7 @@ const UsersTable = () => {
     {
       id: 5,
       name: 'Louis Gray',
-      avatar: 'LG',
+      avatar: '/images/users/louis.png',
       profile: 'Marketing',
       status: 'Connected',
       role: 'Admin',
@@ -56,7 +56,7 @@ const UsersTable = () => {
     {
       id: 6,
       name: 'Donna Young',
-      avatar: 'DY',
+      avatar: '/images/users/donna.png',
       profile: 'Marketing',
       status: 'Connected',
       role: 'User',
@@ -74,13 +74,15 @@ const UsersTable = () => {
       <div className="table-header">
         <div className="table-title-section">
           <h2 className="table-title">Users</h2>
-          <div className="filter-dropdown">
-            <span>All</span>
-            <span className="dropdown-arrow">▼</span>
-          </div>
         </div>
         <div className="table-actions">
-          <span className="more-options">⋮</span>
+          <div className="filter-dropdown">
+            <span className="dropdown-text">All</span>
+            <div className="dropdown-arrow">
+              <img src="/images/CaretDown.svg" alt="Chevron" />
+            </div>
+          </div>
+          <div className="more-options"></div>
         </div>
       </div>
       
@@ -100,29 +102,30 @@ const UsersTable = () => {
             {users.map((user) => (
               <tr key={user.id}>
                 <td>
-                  <div className="user-cell">
-                    <div className="user-avatar-small">{user.avatar}</div>
+                  <div className="user-info">
+                    <img src={user.avatar} alt={user.name} className="user-avatar-small" />
                     <span className="user-name">{user.name}</span>
                   </div>
                 </td>
-                <td>{user.profile}</td>
+                <td className="profile-cell">{user.profile}</td>
                 <td>
                   <div className="status-cell">
-                    <div 
-                      className="status-dot" 
-                      style={{ backgroundColor: getStatusColor(user.status) }}
-                    ></div>
-                    <span>{user.status}</span>
+                    {user.status === 'Connected' ? (
+                      <div className="status-connected">
+                        <div className="status-dot-connected"></div>
+                        <span className="status-text-connected">Connected</span>
+                      </div>
+                    ) : (
+                      <div className="status-offline">
+                        <div className="status-dot-offline"></div>
+                        <span className="status-text-offline">Offline</span>
+                      </div>
+                    )}
                   </div>
                 </td>
-                <td>{user.role}</td>
-                <td>{user.servers}</td>
-                <td>
-                  <div className="activity-cell">
-                    <span>{user.lastActivity}</span>
-                    <span className="sort-arrow">▼</span>
-                  </div>
-                </td>
+                <td className="role-cell">{user.role}</td>
+                <td className="servers-cell">{user.servers}</td>
+                <td className="activity-cell">{user.lastActivity}</td>
               </tr>
             ))}
           </tbody>

@@ -1,64 +1,121 @@
 .users-table-container {
+  min-width: 1614px;
   width: 100%;
-  height: 100%;
+  height: 790px;
+  top: 264px;
+  left: 280px;
+  gap: 24px;
+  opacity: 1;
   background: #FFFFFF;
   border-radius: 8px;
-  border: 1px solid #E5E7EB;
-  overflow: hidden;
+  border: 1px solid #DDDCE4;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .table-header {
-  padding: 16px 20px;
-  border-bottom: 1px solid #E5E7EB;
+  min-width: 1584px;
+  width: 100%;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+  border-bottom: none;
+}
+
+.table-title-section {
+  width: 46px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.table-title {
+  width: 46px;
+  height: 22px;
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Semi Bold;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0%;
+  color: var(--Text-Colours-color-text-primary-2, #231A4D);
+  margin: 0;
+}
+
+.table-actions {
+  min-width: 1522px;
+  width: 100%;
+  height: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.table-title-section {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.table-title {
-  font-family: Inter;
-  font-weight: 600;
-  font-size: 18px;
-  color: #231A4D;
-  margin: 0;
-}
-
 .filter-dropdown {
+  width: 57px;
+  height: 16px;
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  background: #F3F4F6;
+  gap: 10px;
+  background: #F9F8FB;
   border-radius: 4px;
-  font-size: 12px;
-  color: #6B7280;
+  padding: 0 8px;
   cursor: pointer;
+}
+
+.dropdown-text {
+  width: 15px;
+  height: 12px;
+  font-family: Lato;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: var(--Text-Colours-color-text-secondary, #6B6293);
 }
 
 .dropdown-arrow {
-  font-size: 10px;
-}
-
-.table-actions {
+  width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.dropdown-arrow img {
+  color: var(--Component-Colours-color-fg-accent-secondary-2, #019894);
 }
 
 .more-options {
-  font-size: 18px;
-  color: #6B7280;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 4px;
+}
+
+.more-options::before {
+  content: '⋮';
+  width: 2.0000014305114746px;
+  height: 10.5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #B6B6B6;
+  line-height: 1;
 }
 
 .table-wrapper {
-  overflow-x: auto;
+  width: 100%;
+  min-width: 1584px;
+  height: 720px;
+  opacity: 1;
 }
 
 .users-table {
@@ -66,52 +123,94 @@
   border-collapse: collapse;
 }
 
+.users-table thead {
+  width: 1584px;
+  height: 48px;
+  background: var(--Structure-color-bg-app, #F6F5FA);
+  border-top: 1px solid #E2E2E2;
+  border-bottom: 1px solid #E2E2E2;
+}
+
 .users-table th {
-  padding: 12px 20px;
+  width: 286.3999938964844px;
+  height: 17px;
+  padding: 16px;
   text-align: left;
   font-family: Inter;
   font-weight: 600;
+  font-style: Semi Bold;
   font-size: 12px;
-  color: #6B7280;
+  line-height: 140%;
+  letter-spacing: 0%;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  background: #F9FAFB;
-  border-bottom: 1px solid #E5E7EB;
+  color: #231A4D;
+  gap: 8px;
+}
+
+.users-table tbody tr {
+  width: 100%;
+  min-width: 1584px;
+  height: 48px;
+  border-bottom: 1px solid #E2E2E2;
+  padding: 8px 16px;
 }
 
 .users-table td {
-  padding: 16px 20px;
-  border-bottom: 1px solid #F3F4F6;
+  width: 286.3999938964844px;
+  height: 32px;
+  padding: 8px 16px;
   font-family: Inter;
-  font-size: 14px;
-  color: #374151;
-}
-
-.users-table tr:hover {
-  background: #F9FAFB;
+  font-size: 12px;
+  color: #231A4D;
+  gap: 8px;
 }
 
 .user-cell {
+  width: 100%;
+  min-width: 1552px;
+  height: 32px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .user-avatar-small {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 79.2px;
+  object-fit: cover;
   background: #6B46C1;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
 }
 
 .user-name {
-  font-weight: 500;
+  width: 246.39999389648438px;
+  height: 17px;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 12px;
+  line-height: 140%;
+  letter-spacing: 0%;
+  color: #231A4D;
+}
+
+.profile-cell, .role-cell, .servers-cell, .activity-cell {
+  width: 67px;
+  height: 17px;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 12px;
+  line-height: 140%;
+  letter-spacing: 0%;
+  color: #231A4D;
 }
 
 .status-cell {
@@ -120,20 +219,64 @@
   gap: 8px;
 }
 
-.status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.activity-cell {
+.status-connected {
+  width: 91px;
+  height: 24px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  background: rgba(0, 178, 113, 0.1);
+  border-radius: 4px;
+  padding: 8px;
 }
 
-.sort-arrow {
-  font-size: 10px;
-  color: #9CA3AF;
-  cursor: pointer;
+.status-offline {
+  width: 66px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(228, 2, 97, 0.1);
+  border-radius: 99px;
+  padding: 8px;
+}
+
+.status-dot-connected {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: #00B271;
+}
+
+.status-dot-offline {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: #E40261;
+}
+
+.status-text-connected {
+  width: 63px;
+  height: 12px;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #00B271;
+  vertical-align: middle;
+}
+
+.status-text-offline {
+  width: 38px;
+  height: 12px;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #E40261;
+  vertical-align: middle;
 }
