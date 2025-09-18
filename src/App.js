@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Topbar from './components/Topbar';
-import Sidebar from './components/Sidebar';
-import Dashboard from './components/Dashboard';
+import Topbar from './components/Topbar/Topbar';
+import Sidebar from './components/Sidebar/Sidebar';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dashboard.css';
-import StatsWidgets from './StatsWidgets';
-import UsersTable from './UsersTable';
+import StatsWidgets from '../StatsWidgets/StatsWidgets';
+import UsersTable from '../UsersTable/UsersTable';
 
 const Dashboard = () => {
   return (
