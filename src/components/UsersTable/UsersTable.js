@@ -11,7 +11,8 @@ const UsersTable = () => {
       status: 'Connected',
       role: 'Power User',
       servers: 4,
-      lastActivity: 'SEP 10 2025'
+      lastActivity: 'SEP 10 2025',
+      selected: true
     },
     {
       id: 2,
@@ -21,7 +22,8 @@ const UsersTable = () => {
       status: 'Offline',
       role: 'User',
       servers: 7,
-      lastActivity: 'SEP 10 2025'
+      lastActivity: 'SEP 10 2025',
+      selected: false
     },
     {
       id: 3,
@@ -31,7 +33,8 @@ const UsersTable = () => {
       status: 'Connected',
       role: 'Admin',
       servers: 8,
-      lastActivity: 'SEP 10 2025'
+      lastActivity: 'SEP 10 2025',
+      selected: false
     },
     {
       id: 4,
@@ -41,7 +44,8 @@ const UsersTable = () => {
       status: 'Offline',
       role: 'User',
       servers: 4,
-      lastActivity: 'SEP 10 2025'
+      lastActivity: 'SEP 10 2025',
+      selected: false
     },
     {
       id: 5,
@@ -51,7 +55,8 @@ const UsersTable = () => {
       status: 'Connected',
       role: 'Admin',
       servers: 7,
-      lastActivity: 'SEP 10 2025'
+      lastActivity: 'SEP 10 2025',
+      selected: false
     },
     {
       id: 6,
@@ -61,7 +66,140 @@ const UsersTable = () => {
       status: 'Connected',
       role: 'User',
       servers: 8,
-      lastActivity: 'SEP 10 2025'
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 7,
+      name: 'Keith Jimenez',
+      avatar: '/images/users/keith.png',
+      profile: 'Engineering',
+      status: 'Connected',
+      role: 'Power User',
+      servers: 4,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 8,
+      name: 'Louis Gray',
+      avatar: '/images/users/louis.png',
+      profile: 'Marketing',
+      status: 'Offline',
+      role: 'User',
+      servers: 7,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 9,
+      name: 'Donna Young',
+      avatar: '/images/users/donna.png',
+      profile: 'Marketing',
+      status: 'Connected',
+      role: 'Admin',
+      servers: 8,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 10,
+      name: 'Keith Jimenez',
+      avatar: '/images/users/keith.png',
+      profile: 'Engineering',
+      status: 'Offline',
+      role: 'User',
+      servers: 4,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 11,
+      name: 'Louis Gray',
+      avatar: '/images/users/louis.png',
+      profile: 'Marketing',
+      status: 'Connected',
+      role: 'Admin',
+      servers: 7,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 12,
+      name: 'Donna Young',
+      avatar: '/images/users/donna.png',
+      profile: 'Marketing',
+      status: 'Connected',
+      role: 'User',
+      servers: 8,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 13,
+      name: 'Keith Jimenez',
+      avatar: '/images/users/keith.png',
+      profile: 'Engineering',
+      status: 'Connected',
+      role: 'Power User',
+      servers: 4,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 14,
+      name: 'Louis Gray',
+      avatar: '/images/users/louis.png',
+      profile: 'Marketing',
+      status: 'Offline',
+      role: 'User',
+      servers: 7,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 15,
+      name: 'Donna Young',
+      avatar: '/images/users/donna.png',
+      profile: 'Marketing',
+      status: 'Connected',
+      role: 'Admin',
+      servers: 8,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 16,
+      name: 'Keith Jimenez',
+      avatar: '/images/users/keith.png',
+      profile: 'Engineering',
+      status: 'Offline',
+      role: 'User',
+      servers: 4,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 17,
+      name: 'Louis Gray',
+      avatar: '/images/users/louis.png',
+      profile: 'Marketing',
+      status: 'Connected',
+      role: 'Admin',
+      servers: 7,
+      lastActivity: 'SEP 10 2025',
+      selected: false
+    },
+    {
+      id: 18,
+      name: 'Donna Young',
+      avatar: '/images/users/donna.png',
+      profile: 'Marketing',
+      status: 'Connected',
+      role: 'User',
+      servers: 8,
+      lastActivity: 'SEP 10 2025',
+      selected: false
     }
   ];
 
@@ -100,7 +238,7 @@ const UsersTable = () => {
           </thead>
           <tbody>
             {users.map((user) => (
-              <tr key={user.id}>
+              <tr key={user.id} className={user.selected ? 'selected-row' : ''}>
                 <td>
                   <div className="user-info">
                     <img src={user.avatar} alt={user.name} className="user-avatar-small" />
