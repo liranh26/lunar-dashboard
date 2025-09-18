@@ -38,3 +38,4 @@ const StatsWidgets = () => {
 };
 
 export default StatsWidgets;
+

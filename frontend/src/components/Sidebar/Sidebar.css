@@ -1,6 +1,5 @@
 .sidebar {
   width: 256px;
-  height: 100%;
   top: 72px;
   background: #FFFFFF;
   border-right: 1px solid var(--Structure-color-border-primary, #20145226);
@@ -31,6 +30,7 @@
   height: 200px;
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 .section-title {
@@ -181,3 +181,4 @@
   color: var(--Text-Colours-color-text-disabled-2, #BCBCBC);
   font-weight: 400;
 }
+
