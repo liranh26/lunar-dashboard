@@ -69,3 +69,22 @@
   color: #6147D1;
 }
 
+.widget-value.loading {
+  color: #9CA3AF;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.stats-error {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Inter;
+  font-size: 12px;
+}
+

@@ -1,211 +1,82 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './UsersTable.css';
+import apiService from '../../services/apiService';
 
 const UsersTable = () => {
-  const users = [
-    {
-      id: 1,
-      name: 'Keith Jimenez',
-      avatar: '/images/users/keith.png',
-      profile: 'Engineering',
-      status: 'Connected',
-      role: 'Power User',
-      servers: 4,
-      lastActivity: 'SEP 10 2025',
-      selected: true
-    },
-    {
-      id: 2,
-      name: 'Louis Gray',
-      avatar: '/images/users/louis.png',
-      profile: 'Marketing',
-      status: 'Offline',
-      role: 'User',
-      servers: 7,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 3,
-      name: 'Donna Young',
-      avatar: '/images/users/donna.png',
-      profile: 'Marketing',
-      status: 'Connected',
-      role: 'Admin',
-      servers: 8,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 4,
-      name: 'Keith Jimenez',
-      avatar: '/images/users/keith.png',
-      profile: 'Engineering',
-      status: 'Offline',
-      role: 'User',
-      servers: 4,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 5,
-      name: 'Louis Gray',
-      avatar: '/images/users/louis.png',
-      profile: 'Marketing',
-      status: 'Connected',
-      role: 'Admin',
-      servers: 7,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 6,
-      name: 'Donna Young',
-      avatar: '/images/users/donna.png',
-      profile: 'Marketing',
-      status: 'Connected',
-      role: 'User',
-      servers: 8,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 7,
-      name: 'Keith Jimenez',
-      avatar: '/images/users/keith.png',
-      profile: 'Engineering',
-      status: 'Connected',
-      role: 'Power User',
-      servers: 4,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 8,
-      name: 'Louis Gray',
-      avatar: '/images/users/louis.png',
-      profile: 'Marketing',
-      status: 'Offline',
-      role: 'User',
-      servers: 7,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 9,
-      name: 'Donna Young',
-      avatar: '/images/users/donna.png',
-      profile: 'Marketing',
-      status: 'Connected',
-      role: 'Admin',
-      servers: 8,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 10,
-      name: 'Keith Jimenez',
-      avatar: '/images/users/keith.png',
-      profile: 'Engineering',
-      status: 'Offline',
-      role: 'User',
-      servers: 4,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 11,
-      name: 'Louis Gray',
-      avatar: '/images/users/louis.png',
-      profile: 'Marketing',
-      status: 'Connected',
-      role: 'Admin',
-      servers: 7,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 12,
-      name: 'Donna Young',
-      avatar: '/images/users/donna.png',
-      profile: 'Marketing',
-      status: 'Connected',
-      role: 'User',
-      servers: 8,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 13,
-      name: 'Keith Jimenez',
-      avatar: '/images/users/keith.png',
-      profile: 'Engineering',
-      status: 'Connected',
-      role: 'Power User',
-      servers: 4,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 14,
-      name: 'Louis Gray',
-      avatar: '/images/users/louis.png',
-      profile: 'Marketing',
-      status: 'Offline',
-      role: 'User',
-      servers: 7,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 15,
-      name: 'Donna Young',
-      avatar: '/images/users/donna.png',
-      profile: 'Marketing',
-      status: 'Connected',
-      role: 'Admin',
-      servers: 8,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 16,
-      name: 'Keith Jimenez',
-      avatar: '/images/users/keith.png',
-      profile: 'Engineering',
-      status: 'Offline',
-      role: 'User',
-      servers: 4,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 17,
-      name: 'Louis Gray',
-      avatar: '/images/users/louis.png',
-      profile: 'Marketing',
-      status: 'Connected',
-      role: 'Admin',
-      servers: 7,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    },
-    {
-      id: 18,
-      name: 'Donna Young',
-      avatar: '/images/users/donna.png',
-      profile: 'Marketing',
-      status: 'Connected',
-      role: 'User',
-      servers: 8,
-      lastActivity: 'SEP 10 2025',
-      selected: false
-    }
-  ];
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedUserId, setSelectedUserId] = useState(null);
 
-  const getStatusColor = (status) => {
-    return status === 'Connected' ? '#10B981' : '#EF4444';
+  // Fetch users data on component mount
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const response = await apiService.getUsers();
+        // Handle both direct array response and wrapped response
+        const usersData = Array.isArray(response) ? response : response.users || [];
+        setUsers(usersData);
+        
+        // Set first user as selected by default
+        if (usersData.length > 0) {
+          setSelectedUserId(usersData[0].id);
+        }
+      } catch (err) {
+        console.error('Error fetching users:', err);
+        setError('Failed to load users. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  // Handle user selection
+  const handleUserSelect = (userId) => {
+    setSelectedUserId(userId);
   };
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="users-table-container">
+        <div className="table-header">
+          <div className="table-title-section">
+            <h2 className="table-title">Users</h2>
+          </div>
+        </div>
+        <div className="loading-state">
+          <div className="loading-spinner"></div>
+          <p>Loading users...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="users-table-container">
+        <div className="table-header">
+          <div className="table-title-section">
+            <h2 className="table-title">Users</h2>
+          </div>
+        </div>
+        <div className="error-state">
+          <p className="error-message">{error}</p>
+          <button 
+            className="retry-button"
+            onClick={() => window.location.reload()}
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="users-table-container">
@@ -238,7 +109,12 @@ const UsersTable = () => {
           </thead>
           <tbody>
             {users.map((user) => (
-              <tr key={user.id} className={user.selected ? 'selected-row' : ''}>
+              <tr 
+                key={user.id} 
+                className={selectedUserId === user.id ? 'selected-row' : ''}
+                onClick={() => handleUserSelect(user.id)}
+                style={{ cursor: 'pointer' }}
+              >
                 <td>
                   <div className="user-info">
                     <img src={user.avatar} alt={user.name} className="user-avatar-small" />
