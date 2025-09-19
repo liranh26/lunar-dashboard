@@ -187,14 +187,135 @@
     "selected": false
   },
   {
-    "id": 18,
-    "name": "Donna Young",
+    "id": 19,
+    "name": "Sarah Johnson",
+    "avatar": "/images/users/keith.png",
+    "profile": "Engineering",
+    "status": "Connected",
+    "role": "Admin",
+    "servers": 12,
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 20,
+    "name": "Michael Chen",
+    "avatar": "/images/users/louis.png",
+    "profile": "Marketing",
+    "status": "Offline",
+    "role": "User",
+    "servers": 3,
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 21,
+    "name": "Emily Rodriguez",
+    "avatar": "/images/users/donna.png",
+    "profile": "Engineering",
+    "status": "Connected",
+    "role": "Power User",
+    "servers": 9,
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 22,
+    "name": "David Wilson",
+    "avatar": "/images/users/keith.png",
+    "profile": "Marketing",
+    "status": "Connected",
+    "role": "User",
+    "servers": 6,
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 23,
+    "name": "Lisa Anderson",
+    "avatar": "/images/users/louis.png",
+    "profile": "Engineering",
+    "status": "Offline",
+    "role": "Admin",
+    "servers": 15,
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 24,
+    "name": "James Taylor",
     "avatar": "/images/users/donna.png",
     "profile": "Marketing",
     "status": "Connected",
     "role": "User",
+    "servers": 4,
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 25,
+    "name": "Maria Garcia",
+    "avatar": "/images/users/keith.png",
+    "profile": "Engineering",
+    "status": "Connected",
+    "role": "Power User",
+    "servers": 11,
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 26,
+    "name": "Robert Brown",
+    "avatar": "/images/users/louis.png",
+    "profile": "Marketing",
+    "status": "Offline",
+    "role": "User",
+    "servers": 7,
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 27,
+    "name": "Jennifer Davis",
+    "avatar": "/images/users/donna.png",
+    "profile": "Engineering",
+    "status": "Connected",
+    "role": "Admin",
+    "servers": 13,
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 28,
+    "name": "Christopher Miller",
+    "avatar": "/images/users/keith.png",
+    "profile": "Marketing",
+    "status": "Connected",
+    "role": "User",
+    "servers": 5,
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 29,
+    "name": "Amanda White",
+    "avatar": "/images/users/louis.png",
+    "profile": "Engineering",
+    "status": "Offline",
+    "role": "Power User",
     "servers": 8,
-    "lastActivity": "SEP 10 2025",
+    "lastActivity": "SEP 11 2025",
+    "selected": false
+  },
+  {
+    "id": 30,
+    "name": "Daniel Thompson",
+    "avatar": "/images/users/donna.png",
+    "profile": "Marketing",
+    "status": "Connected",
+    "role": "User",
+    "servers": 6,
+    "lastActivity": "SEP 11 2025",
     "selected": false
   }
 ]

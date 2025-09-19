@@ -57,7 +57,6 @@
 }
 
 .filter-dropdown {
-  width: 57px;
   height: 16px;
   display: flex;
   align-items: center;
@@ -345,5 +344,227 @@
 
 .retry-button:hover {
   background: #4C3AA8;
+}
+
+/* Filter Controls */
+.filter-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid #DDDCE4;
+  border-radius: 4px;
+  font-family: Inter;
+  font-size: 14px;
+  min-width: 200px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #6147D1;
+  box-shadow: 0 0 0 2px rgba(97, 71, 209, 0.1);
+}
+
+.filter-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filter-select {
+  padding: 8px 32px 8px 12px;
+  border: 1px solid #DDDCE4;
+  border-radius: 4px;
+  font-family: Inter;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  min-width: 120px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #6147D1;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-arrow img {
+  width: 12px;
+  height: 12px;
+  color: var(--Component-Colours-color-fg-accent-secondary-2, #019894);
+}
+
+/* Optimistic UI - Clickable Status Badges */
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.status-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge.connected {
+  background: rgba(0, 178, 113, 0.1);
+}
+
+.status-badge.offline {
+  background: rgba(228, 2, 97, 0.1);
+}
+
+.status-dot-connected {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: #00B271;
+}
+
+.status-dot-offline {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: #E40261;
+}
+
+.status-text-connected {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  color: #00B271;
+}
+
+.status-text-offline {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  color: #E40261;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid #E2E2E2;
+  margin-top: 16px;
+}
+
+.pagination-info {
+  font-family: Inter;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pagination-btn {
+  padding: 8px 16px;
+  border: 1px solid #DDDCE4;
+  border-radius: 4px;
+  background: white;
+  font-family: Inter;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #F9F8FB;
+  border-color: #6147D1;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-page {
+  font-family: Inter;
+  font-size: 14px;
+  color: #231A4D;
+  font-weight: 500;
+}
+
+/* Infinite Scroll Styles */
+.loading-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  background: #F9F8FB;
+  border-top: 1px solid #E2E2E2;
+}
+
+.loading-spinner-small {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #6147D1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-more span {
+  font-family: Inter;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.end-of-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #F9F8FB;
+  border-top: 1px solid #E2E2E2;
+}
+
+.end-of-list span {
+  font-family: Inter;
+  font-size: 14px;
+  color: #9CA3AF;
+  font-style: italic;
+}
+
+.user-count-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: #F6F5FA;
+  border-top: 1px solid #E2E2E2;
+  font-family: Inter;
+  font-size: 14px;
+  color: #6B7280;
 }
 

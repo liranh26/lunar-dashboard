@@ -33,9 +33,16 @@ class ApiService {
   async getUsers(filters = {}) {
     const queryParams = new URLSearchParams();
     
+    // Add all possible query parameters
+    if (filters.search) queryParams.append('search', filters.search);
     if (filters.status) queryParams.append('status', filters.status);
     if (filters.profile) queryParams.append('profile', filters.profile);
     if (filters.role) queryParams.append('role', filters.role);
+    if (filters.createdFrom) queryParams.append('createdFrom', filters.createdFrom);
+    if (filters.createdTo) queryParams.append('createdTo', filters.createdTo);
+    if (filters.sort) queryParams.append('sort', filters.sort);
+    if (filters.page) queryParams.append('page', filters.page);
+    if (filters.pageSize) queryParams.append('pageSize', filters.pageSize);
 
     const endpoint = queryParams.toString() 
       ? `/api/users?${queryParams.toString()}`
@@ -52,6 +59,14 @@ class ApiService {
     return this.fetchData(`/api/users/${id}`, {
       method: 'PUT',
       body: JSON.stringify(userData),
+    });
+  }
+
+  // PATCH endpoint for optimistic updates
+  async patchUser(id, updateData) {
+    return this.fetchData(`/api/users/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(updateData),
     });
   }
 
