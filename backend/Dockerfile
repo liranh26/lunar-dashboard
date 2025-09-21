@@ -14,6 +14,9 @@ RUN npm install
 COPY src ./src
 COPY server.js ./
 
+# Copy data files (mock database)
+COPY data ./data
+
 # Expose port
 EXPOSE 5000
 
