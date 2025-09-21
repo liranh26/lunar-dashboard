@@ -18,7 +18,21 @@ const StatsWidgets = () => {
         setLoading(true);
         setError(null);
         const response = await apiService.getStats();
-        setStats(response);
+        console.log('Stats API response:', response);
+        
+        // Handle different response structures
+        if (response.data) {
+          setStats(response.data);
+        } else if (response.connectedTools !== undefined) {
+          setStats(response);
+        } else {
+          console.warn('Unexpected stats response structure:', response);
+          setStats({
+            connectedTools: 0,
+            connectedServers: 0,
+            activeAgents: 0
+          });
+        }
       } catch (err) {
         console.error('Error fetching stats:', err);
         setError('Failed to load statistics');
@@ -39,17 +53,17 @@ const StatsWidgets = () => {
   const widgets = [
     {
       title: 'Connected Tools',
-      value: loading ? '...' : stats.connectedTools.toString(),
+      value: loading ? '...' : (stats.connectedTools ?? 0).toString(),
       icon: <img src="/images/tool.svg" alt="Tool" width="16" height="16" />
     },
     {
       title: 'Connected MCP servers',
-      value: loading ? '...' : stats.connectedServers.toString(),
+      value: loading ? '...' : (stats.connectedServers ?? 0).toString(),
       icon: <img src="/images/server icon.svg" alt="Server" width="16" height="16" />
     },
     {
       title: 'Active Agents',
-      value: loading ? '...' : stats.activeAgents.toString(),
+      value: loading ? '...' : (stats.activeAgents ?? 0).toString(),
       icon: <img src="/images/Nav icon.svg" alt="Navigation" width="16" height="16" />
     }
   ];

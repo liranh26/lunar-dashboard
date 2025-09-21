@@ -30,17 +30,18 @@ const UsersTable = () => {
       }
       
       const response = await apiService.getUsers(currentFilters);
+      console.log('Users API response:', response);
       
       if (append) {
         // Append new users to existing list
-        setUsers(prevUsers => [...prevUsers, ...(response.users || [])]);
+        setUsers(prevUsers => [...prevUsers, ...(response.data || [])]);
       } else {
         // Replace users list
-        setUsers(response.users || []);
+        setUsers(response.data || []);
         
         // Set first user as selected by default
-        if (response.users && response.users.length > 0) {
-          setSelectedUserId(response.users[0].id);
+        if (response.data && response.data.length > 0) {
+          setSelectedUserId(response.data[0].id);
         }
       }
       
