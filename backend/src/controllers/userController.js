@@ -75,6 +75,20 @@ class UserController {
       version: '1.0.0'
     });
   });
+
+  /**
+   * Clear cache endpoint
+   * @param {Object} req - Express request object
+   * @param {Object} res - Express response object
+   */
+  clearCache = asyncHandler(async (req, res) => {
+    this.userService.clearCache();
+    res.json({
+      success: true,
+      message: 'Cache cleared successfully',
+      timestamp: new Date().toISOString()
+    });
+  });
 }
 
 module.exports = UserController;

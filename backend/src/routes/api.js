@@ -20,5 +20,8 @@ router.get('/stats', userController.getStats);
 // Dashboard routes
 router.get('/dashboard', userController.getDashboardData);
 
+// Cache management routes (for testing and management)
+router.post('/cache/clear', userController.clearCache);
+
 module.exports = router;
 
