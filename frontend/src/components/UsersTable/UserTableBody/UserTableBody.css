@@ -1,0 +1,103 @@
+/* UserTableBody.css */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  background-color: white;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.users-table thead {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Filtering header state */
+.users-table thead.filtering-header {
+  position: relative;
+}
+
+.users-table thead.filtering-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.users-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.users-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.users-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Filtering state - subtle opacity change */
+.users-table tbody.filtering {
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.users-table tbody.filtering tr {
+  pointer-events: none;
+}
+
+.loading-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.loading-spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.end-of-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
