@@ -64,7 +64,7 @@ const UserTableBody = ({
       {!hasMore && users.length > 0 && (
         <div className="end-of-list">
           <span>
-            Loaded {pagination?.total || users.length} users - no more users to load
+            Loaded {pagination?.total || users.length} users
           </span>
         </div>
       )}

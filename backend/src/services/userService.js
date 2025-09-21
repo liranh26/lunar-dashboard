@@ -43,7 +43,7 @@ class UserService {
 
       // Load from file (simulates database query)
       console.log('📊 Loading users from data source...');
-      const usersPath = path.join(__dirname, '../../data/users.json');
+      const usersPath = '/app/data/users.json';
       const usersData = await fs.readFile(usersPath, 'utf8');
       const users = JSON.parse(usersData);
       
@@ -76,7 +76,7 @@ class UserService {
 
       // Load from file (simulates database query)
       console.log('📈 Loading stats from data source...');
-      const statsPath = path.join(__dirname, '../../data/stats.json');
+      const statsPath = '/app/data/stats.json';
       const statsData = await fs.readFile(statsPath, 'utf8');
       const stats = JSON.parse(statsData);
       
