@@ -18,7 +18,7 @@ COPY server.js ./
 COPY data ./data
 
 # Expose port
-EXPOSE 5000
+EXPOSE 6000
 
 # Start the application
 CMD ["npm", "run", "dev"]
