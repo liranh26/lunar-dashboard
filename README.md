@@ -74,7 +74,7 @@ docker-compose logs -f
 
 # Access the application
 # Frontend: http://localhost:3000
-# Backend: http://localhost:5000
+# Backend: http://localhost:3001
 ```
 
 ### Option 2: Local Development
@@ -94,7 +94,7 @@ npm install
 # Start the development server
 npm run dev
 ```
-Backend will run on `http://localhost:5000`
+Backend will run on `http://localhost:3001`
 
 #### Frontend Setup
 ```bash
@@ -140,22 +140,22 @@ Frontend will run on `http://localhost:3000`
 ### Example Usage
 ```bash
 # Get all users
-curl http://localhost:5000/api/users
+curl http://localhost:3001/api/users
 
 # Get users with pagination
-curl http://localhost:5000/api/users?page=1&pageSize=10
+curl http://localhost:3001/api/users?page=1&pageSize=10
 
 # Get connected users only
-curl http://localhost:5000/api/users?status=Connected
+curl http://localhost:3001/api/users?status=Connected
 
 # Search users by name
-curl http://localhost:5000/api/users?search=John
+curl http://localhost:3001/api/users?search=John
 
 # Get dashboard stats
-curl http://localhost:5000/api/stats
+curl http://localhost:3001/api/stats
 
 # Clear cache
-curl -X POST http://localhost:5000/api/cache/clear
+curl -X POST http://localhost:3001/api/cache/clear
 ```
 
 ## 🎨 Design Implementation
@@ -301,10 +301,10 @@ cd backend && npm test
 ```
 
 ### API Testing
-- Health check: `http://localhost:5000/api/health`
-- Users API: `http://localhost:5000/api/users`
-- Stats API: `http://localhost:5000/api/stats`
-- Dashboard API: `http://localhost:5000/api/dashboard`
+- Health check: `http://localhost:3001/api/health`
+- Users API: `http://localhost:3001/api/users`
+- Stats API: `http://localhost:3001/api/stats`
+- Dashboard API: `http://localhost:3001/api/dashboard`
 
 ## 📝 Notes
 
@@ -332,7 +332,7 @@ Once services are running:
 1. Start backend: `cd backend && npm run dev`
 2. Start frontend: `cd frontend && npm start`
 3. Visit `http://localhost:3000` to see the dashboard
-4. Test API endpoints at `http://localhost:5000`
+4. Test API endpoints at `http://localhost:3001`
 
 ## 🚀 Production Deployment
 

@@ -83,7 +83,7 @@ GET /api/users?page=2&pageSize=10
 2. **Environment variables** (optional):
    Create a `.env` file:
    ```env
-   PORT=5000
+   PORT=3001
    NODE_ENV=development
    CORS_ORIGIN=http://localhost:3000
    LOG_LEVEL=info
@@ -142,7 +142,7 @@ The API can be tested using:
 
 - **curl**:
   ```bash
-  curl http://localhost:5000/api/users?pageSize=5
+  curl http://localhost:3001/api/users?pageSize=5
   ```
 
 - **Postman**: Import the API endpoints

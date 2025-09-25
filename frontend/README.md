@@ -18,7 +18,7 @@ React-based frontend for the Lunar Dashboard application with full API integrati
 ### Prerequisites
 - Node.js (v14 or higher)
 - npm or yarn
-- Backend server running on port 5000
+- Backend server running on port 3001
 
 ### Installation
 1. Navigate to the frontend directory:
@@ -47,7 +47,7 @@ React-based frontend for the Lunar Dashboard application with full API integrati
 
 ## API Integration
 
-The frontend connects to the backend API running on `http://localhost:5000` by default.
+The frontend connects to the backend API running on `http://localhost:3001` by default.
 
 ### API Service
 - **Location**: `src/services/apiService.js`
@@ -66,7 +66,7 @@ The frontend connects to the backend API running on `http://localhost:5000` by d
 ### Environment Configuration
 Create a `.env.local` file in the frontend directory:
 ```bash
-REACT_APP_API_URL=http://localhost:5000
+REACT_APP_API_URL=http://localhost:3001
 ```
 
 ## Project Structure
@@ -165,7 +165,7 @@ frontend/
 ## Troubleshooting
 
 ### Backend Connection Issues
-1. Ensure backend is running on port 5000
+1. Ensure backend is running on port 3001
 2. Check CORS configuration in backend
 3. Verify API endpoints are accessible
 4. Check browser console for errors

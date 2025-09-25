@@ -21,7 +21,7 @@ docker-compose down
 
 ### Services
 
-- **Backend** (`lunar-backend`): Node.js API server on port 5000
+- **Backend** (`lunar-backend`): Node.js API server on port 3001
 - **Frontend** (`lunar-frontend`): React development server on port 3000
 
 ### Network
@@ -126,8 +126,8 @@ docker inspect lunar-backend --format='{{.State.Health.Status}}'
 ## 🌐 Access Points
 
 - **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:5000
-- **API Health**: http://localhost:5000/api/health
+- **Backend API**: http://localhost:3001
+- **API Health**: http://localhost:3001/api/health
 
 ## 🔒 Security Features
 
@@ -157,7 +157,7 @@ lunar/
 
 ### Common Issues
 
-1. **Port conflicts**: Ensure ports 3000, 5000 are available
+1. **Port conflicts**: Ensure ports 3000, 3001 are available
 2. **Permission issues**: Check file permissions in mounted volumes
 3. **Build failures**: Clear Docker cache with `docker-compose build --no-cache`
 4. **Data not loading**: Check backend logs for data loading messages
@@ -177,7 +177,7 @@ docker-compose exec [service-name] sh
 docker-compose exec backend ping frontend
 
 # Test API from frontend container
-docker exec lunar-frontend node -e "const http = require('http'); const req = http.get('http://backend:5000/api/health', (res) => { let data = ''; res.on('data', chunk => data += chunk); res.on('end', () => console.log('Backend connection:', JSON.parse(data).message)); }); req.on('error', e => console.error('Error:', e.message));"
+docker exec lunar-frontend node -e "const http = require('http'); const req = http.get('http://backend:3001/api/health', (res) => { let data = ''; res.on('data', chunk => data += chunk); res.on('end', () => console.log('Backend connection:', JSON.parse(data).message)); }); req.on('error', e => console.error('Error:', e.message));"
 ```
 
 ## 🚀 Deployment
@@ -194,7 +194,7 @@ Set environment variables in docker-compose.yml:
 environment:
   - NODE_ENV=development
   - HOST=0.0.0.0
-  - REACT_APP_API_URL=http://backend:5000
+  - REACT_APP_API_URL=http://backend:3001
 ```
 
 ## 📈 Monitoring
@@ -221,14 +221,14 @@ docker-compose logs -f frontend
 ## 🔧 Current Configuration
 
 ### Backend Configuration
-- **Port**: 5000
+- **Port**: 3001
 - **Host**: 0.0.0.0 (accessible from other containers)
 - **Data**: Mounted from `./backend/data`
 - **Source**: Hot reload from `./backend/src`
 
 ### Frontend Configuration
 - **Port**: 3000
-- **API URL**: http://backend:5000
+- **API URL**: http://backend:3001
 - **Source**: Hot reload from `./frontend/src`
 - **Public**: Static files from `./frontend/public`
 
